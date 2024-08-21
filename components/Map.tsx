@@ -78,6 +78,7 @@ const Map = () => {
       showsPointsOfInterest={false}
       initialRegion={region}
       showsUserLocation={true}
+      userLocationUpdateInterval={5000}
       userInterfaceStyle='light'>
       {markers.map((marker) => (
         <Marker

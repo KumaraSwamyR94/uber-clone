@@ -17,7 +17,10 @@ const BookRide = () => {
   )[0];
 
   return (
-    <RideLayout title='Book Ride' snapPoints={['20%', '65%', '85%']}>
+    <RideLayout
+      title='Book Ride'
+      snapPoints={['20%', '65%', '95%']}
+      snapIndex={1}>
       <>
         <Text className='text-xl font-JakartaSemiBold mb-3'>
           Ride Information
@@ -58,7 +61,7 @@ const BookRide = () => {
           <View className='flex flex-row items-center justify-between w-full border-b border-white py-3'>
             <Text className='text-lg font-JakartaRegular'>Pickup Time</Text>
             <Text className='text-lg font-JakartaRegular'>
-              {formatTime(parseInt(`${driverDetails.time}`))}
+              {formatTime(parseInt(`${driverDetails.time || 0}`))}
             </Text>
           </View>
 
@@ -85,7 +88,13 @@ const BookRide = () => {
             </Text>
           </View>
         </View>
-        <Payment />
+        <Payment
+          fullName={user?.fullName!}
+          email={user?.emailAddresses[0].emailAddress!}
+          amount={driverDetails?.price!}
+          driverId={driverDetails?.id}
+          rideTime={driverDetails?.time!}
+        />
       </>
     </RideLayout>
   );
