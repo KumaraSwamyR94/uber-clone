@@ -7,15 +7,15 @@ import {
   TextInput,
   Platform,
   Keyboard,
-  ImageRequireSource,
   TextInputProps,
+  ImageSourcePropType,
 } from 'react-native';
 import React from 'react';
 
 type InputFieldProps = TextInputProps & {
   label: string;
   labelStyle?: string;
-  icon?: ImageRequireSource;
+  icon?: ImageSourcePropType;
   secureTextEntry?: boolean;
   containerStyle?: any;
   inputStyle?: any;

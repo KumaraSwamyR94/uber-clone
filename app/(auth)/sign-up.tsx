@@ -1,6 +1,5 @@
 import { View, Text, ScrollView, Image, Alert } from 'react-native';
 import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { icons, images } from '@/constants';
 import InputField from '@/components/InputField';
 import CustomButton from '@/components/CustomButton';
@@ -9,6 +8,7 @@ import OAuth from '@/components/OAuth';
 import { useRouter } from 'expo-router';
 import { ReactNativeModal } from 'react-native-modal';
 import { useSignUp } from '@clerk/clerk-expo';
+import { fetchAPI } from '@/lib/fetch';
 
 const SignUp = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -55,7 +55,14 @@ const SignUp = () => {
       });
 
       if (completeSignUp.status === 'complete') {
-        // TODO: create a database user
+        await fetchAPI('/(api)/user', {
+          method: 'POST',
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            clerkId: completeSignUp.createdUserId,
+          }),
+        });
         await setActive({ session: completeSignUp.createdSessionId });
         setVerification({
           ...verification,
