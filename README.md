@@ -1,50 +1,121 @@
-# Welcome to your Expo app 👋
+# Uber Clone
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A clone of Uber built with React Native using Expo, Zustand, PostgreSQL, Clerk for authentication, and Google Maps for navigation and directions.
 
-## Get started
+## Table of Contents
 
-1. Install dependencies
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-   ```bash
-   npm install
+## Overview
+
+This project is a mobile application that replicates the core functionalities of Uber, including ride-hailing, real-time tracking, and user authentication. It leverages a modern tech stack to provide a seamless and responsive user experience.
+
+## Features
+
+- **User Authentication**: Secure sign-up and login using Clerk.
+- **Real-Time Tracking**: Track rides and view driver locations in real-time with Google Maps integration.
+- **Ride Booking**: Request rides, choose pickup and drop-off locations, and view ride estimates.
+- **Navigation and Directions**: Get directions from Google Maps API.
+- **State Management**: Efficient state management using Zustand.
+- **Database**: Persistent data storage and management with PostgreSQL.
+
+## Tech Stack
+
+- **React Native**: Framework for building native apps using React.
+- **Expo**: Framework and platform for universal React Native applications.
+- **Nativewing:** A css based styling framework for React Native apps.
+- **Zustand**: State management library for React.
+- **PostgreSQL**: Open-source relational database for data storage.
+- **Clerk**: User authentication and management.
+- **Google Maps API**: For maps, geocoding, and directions.
+
+## Getting Started
+
+To get started with this project, follow the instructions below.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (version 14 or higher)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
+- [PostgreSQL](https://www.postgresql.org/download/) (for database setup)
+- [Clerk Account](https://clerk.dev/) (for authentication)
+
+### Installation
+
+   1. **Clone the repository:**
+   
+      ```bash
+      git clone https://github.com/your-username/uber-clone.git
+      cd uber-clone
+      ```
+      
+   2. **Install dependencies:**
+   
+      ```bash
+      yarn install
+      ```
+   
+   3. **Set up PostgreSQL:**
+   
+      - Create a PostgreSQL database and update the configuration in `config/database.js`.
+   
+      
+   4. **Configure Clerk:**
+   
+      - Create a Clerk account and add your API keys to the `.env` file.
+   
+      
+   5. **Configure Google Maps API:**
+   
+      - Obtain a Google Maps API key and add it to the `.env` file.
+
+
+## Configuration
+
+Create a .env file in the root of your project and add the following environment variables:
+
+   ```.env
+   DATABASE_URL=your_postgresql_database_url
+   CLERK_API_KEY=your_clerk_api_key
+   GOOGLE_MAPS_API_KEY=your_google_maps_api_key
    ```
 
-2. Start the app
 
-   ```bash
-    npx expo start
-   ```
+## Running the Application
 
-In the output, you'll find options to open the app in a
+   1. Start the development server:
+   
+      ```bash
+      yarn start
+      ```
+   2. Open the app on a mobile device or emulator.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Usage
 
-## Get a fresh project
+- **Sign Up/Login:** Use Clerk for authentication.
+- **Book a Ride:** Choose your pickup and drop-off locations, and request a ride.
+- **Track Your Ride:** View real-time location updates on the map.
+- **Get Directions:** Use the integrated Google Maps API for turn-by-turn navigation.
 
-When you're ready, run:
 
-```bash
-npm run reset-project
-```
+### Contributing
+Contributions are welcome! Please follow these steps:
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature`).
+3. Commit your changes (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature/your-feature`).
+5. Open a pull request.
 
-## Learn more
 
-To learn more about developing your project with Expo, look at the following resources:
+### License
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt) file for details.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
